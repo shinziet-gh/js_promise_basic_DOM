@@ -12,7 +12,7 @@ const promise1 = new Promise((resolve, reject) => {
 
 const promise2 = new Promise((resolve, reject) => {
   setTimeout(() => {
-    reject(new Error('Timeout!'));
+    reject(new Error('Promise was rejected!'));
   }, 3000);
 });
 
@@ -27,11 +27,9 @@ promise1
   .catch((error) => {
     const message = document.createElement('div');
 
-    message.className = 'message error-message';
-    message.innerText = 'Promise was rejected!';
-    document.body.appendChild(message);
-
+    message.className = 'error-message';
     message.innerText = error.message;
+    document.body.appendChild(message);
   });
 
 promise2
@@ -45,9 +43,7 @@ promise2
   .catch((error) => {
     const message = document.createElement('div');
 
-    message.className = 'message error-message';
-    message.innerText = 'Promise was rejected!';
-    document.body.appendChild(message);
-
+    message.className = 'error-message';
     message.innerText = error.message;
+    document.body.appendChild(message);
   });
